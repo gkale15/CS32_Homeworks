@@ -1,0 +1,32 @@
+2. The first 12 coordinate pairs that were popped off with the stack:
+	4, 3
+	3, 3
+	5, 3
+	5, 2
+	5, 1
+	6, 1
+	7, 1
+	8, 1
+	8, 2
+	6, 3
+	4, 4
+	4, 5
+4. The first 12 coordinate pairs that were popped off with the queue:
+	4, 3
+	4, 4
+	5, 3
+	3, 3
+	4, 5
+	6, 3
+	5, 2
+	4, 6
+	5, 5
+	5, 1
+	4, 7
+	6, 5
+	
+The queue algorithm is a breadth first search. This means that it branches out from a single point in the NSEW directions, before going back and revisiting the oldest point in its history and branching out in all four directions there The queue is the better search algorithm for the maze problem, since it covers multiple directions at once.
+
+The stack algorithm is a depth first search. This means that since it is First in, First out, it looks at the most recent addition to the stack out of the NESW directions and pursues that point in its NESW directions, until it hits a wall.
+
+As you can see, both algorithms begin at 4,3 but the queue moves to 4,4 next: the East direction, as that was the first one enqueued. The stack moves to 3,3 or the North direction, the last one added to it.From here, the stack looks at the possible moves from the 4,4 position, pursuing it till it runs into a dead end or finds the end of the maze. On the other hand, the queue looks at 3,3 and then looks at the 4 directions around it and adds any valid ones to the stack. From here though, instead of looking at any of the newly queued points, the queue looks at the least recent point added to it--5,3--which is the point south of the original starting point. In this way, it branches out in all directions from the origin, like a stone causing ripples in a pond. Conversely, the stack is like a runner who reaches dead ends before returning to pursue any other leads he had.
